@@ -13,5 +13,10 @@ public class Book
         Title = title;
         Author = author;
     }
+
+    public override string ToString()
+    {
+        return $"Id: {Id} - Title: {Title} - Author: {Author}";
+    }
     
 }
