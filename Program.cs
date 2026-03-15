@@ -17,10 +17,6 @@ class Program
         try
         {
             int option = int.Parse(Console.ReadLine());
-            if (option > 5)
-            {
-                ShowMenu();
-            }
             SelectAction(option);
         }
         catch (FormatException e)
@@ -42,6 +38,7 @@ class Program
     }
     static void ShowQuad()
     {
+        Console.Clear();
         Console.Write("┌");
         for (int i = 0; i < 28; i++)
         {
@@ -70,7 +67,7 @@ class Program
     static void ShowOptions()
     {
         Console.SetCursorPosition(8,2);
-        Console.WriteLine("1-Register book");
+        Console.WriteLine("1-Register Book");
         Console.SetCursorPosition(8,3);
         Console.WriteLine("2-Register Person");
         Console.SetCursorPosition(8,4);
@@ -85,7 +82,32 @@ class Program
     }
     static void SelectAction(int option)
     {
-        
+        switch (option)
+        {
+            case 1:
+                ShowRegisterBookMenu();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 0:
+                Console.Clear();
+                break;
+            default:
+                Console.Clear();
+                ShowMenu();
+                break;
+        }
+    }
+
+    static void ShowRegisterBookMenu()
+    {
+        ShowQuad();
     }
    
 }
