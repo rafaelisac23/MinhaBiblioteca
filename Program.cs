@@ -79,7 +79,7 @@ class Program
         Console.SetCursorPosition(30,3);
         Console.WriteLine("2-Register Person");//ok
         Console.SetCursorPosition(30,4);
-        Console.WriteLine("3-Borrow Book");
+        Console.WriteLine("3-Borrow Book");//ok
         Console.SetCursorPosition(30,5);
         Console.WriteLine("4-Return Book");
         Console.SetCursorPosition(30,6);
@@ -106,6 +106,7 @@ class Program
                 ShowBorrowBookMenu();
                 break;
             case 4:
+                ReturnBook();
                 break;
             case 5:
                 ShowBooks();
@@ -314,6 +315,28 @@ class Program
         }
 
         return book;
+    }
+    static void ReturnBook()
+    {
+        Console.Clear();
+        ShowQuad();
+        Console.SetCursorPosition(8,1);
+        Console.WriteLine("4-Return Book");
+        Console.SetCursorPosition(8,4);
+        Console.WriteLine("Book id: ");
+        Console.SetCursorPosition(17,4);
+        int id = int.Parse(Console.ReadLine());
+        var loan = loans.loans.Find(l => l.Book.Id == id);
+
+        if (loan == null)
+        {
+            throw new ArgumentException("Book not found in your Loan History");
+        }
+        
+        loan.ReturnDate = DateTime.Now;
+        
+        ShowMenu();
+        
     }
   
     
