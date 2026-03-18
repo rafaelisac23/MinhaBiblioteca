@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace MinhaBibliotexa.Entities;
 
 public class Loan
@@ -18,5 +20,17 @@ public class Loan
         ExpectedReturnDate = LoanDate.AddDays(7);
         ReturnDate = null;
         
+    }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine($"ID: {Id} - Person: {Person.Name} - Book: {Book.Title}") ;
+
+        sb.Append($"LoanDate: {LoanDate.ToString("dd/MM/yyyy")}");
+        sb.Append($" ExpectedReturnDate: {ExpectedReturnDate.ToString("dd/MM/yyyy")}");
+        sb.Append($" ReturnDate: {(ReturnDate != null ? ReturnDate : "")}");
+        
+        return sb.ToString();
     }
 }

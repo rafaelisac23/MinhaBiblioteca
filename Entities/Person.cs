@@ -12,4 +12,9 @@ public class Person
         Name = name;
         RG = rg;
     }
+
+    public override string ToString()
+    {
+        return $"ID: {Id} - Name: {Name} - RG: {RG}";
+    }
 }
